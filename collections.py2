@@ -1,0 +1,61 @@
+18/08
+
+meu_texto = "Bem vindo meu nome é Guilherme eu gosto muito de nomes e tenho o meu cachorro e gosto muito de cachorro"
+meu_texto = meu_texto.lower()
+aparicoes = {}
+
+for palavra in meu_texto.split():
+  ate_agora = aparicoes.get(palavra, 0)
+  aparicoes[palavra] = ate_agora + 1
+
+aparicoes
+from collections import defaultdict
+
+aparicoes = defaultdict(int)
+
+for palavra in meu_texto.split():
+  ate_agora = aparicoes.get(palavra, 0)
+  aparicoes[palavra] = ate_agora + 1
+
+aparicoes
+int()
+         'cachorro': 2,
+
+         'de': 2,
+
+         'e': 2,
+
+         'eu': 1,
+
+         'gosto': 2,
+
+         'guilherme': 1,
+
+         'meu': 2,
+
+         'muito': 2,
+
+         'nome': 1,
+
+         'nomes': 1,
+
+         'o': 1,
+
+         'tenho': 1,
+
+         'vindo': 1,
+
+         'é': 1})
+
+dicionario = defaultdict(int)
+dicionario['guilherme']
+aparicoes = defaultdict(int)
+
+for palavra in meu_texto.split():
+  aparicoes[palavra] += 1
+
+aparicoes
+class Conta:
+  def __init__(self):
+    print("Criando uma conta")
+    
