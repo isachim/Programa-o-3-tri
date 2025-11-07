@@ -1,0 +1,73 @@
+07/11
+
+
+private void Btn_Mouse_MouseEnter(object sender, EventArgs e)
+{
+    Btn_Mouse.Text = "Mouse Enter";
+}
+
+private void Btn_Mouse_MouseLeave(object sender, EventArgs e)
+{
+    Btn_Mouse.Text = "Mouse Leave";
+}
+
+private void Btn_Mouse_MouseHover(object sender, EventArgs e)
+{
+    Btn_Mouse.Text = "Mouse Hover";
+}
+
+private void Btn_Mouse_MouseDown(object sender, MouseEventArgs e)
+{
+    Btn_Mouse.Text = "Mouse Down";
+}
+
+private void Btn_Mouse_MouseUp(object sender, MouseEventArgs e)
+{
+    Btn_Mouse.Text = "Mouse Up";
+}
+
+private void button1_MouseDown(object sender, MouseEventArgs e)
+{
+    string str1 = e.Button.ToString();
+    MessageBox.Show("Foi pressionado o botão da(o) " + str1);
+}
+
+this.Cursor = Cursors.WaitCursor;
+for (int i=0; i <= 10; i++)
+{
+    System.Threading.Thread.Sleep(1000);
+}
+this.Cursor = Cursors.Default;
+
+
+
+ToolStripMenuItem DesenhaItemMenu(string text, string nomeImagem)
+{
+    var vToolTip = new ToolStripMenuItem();
+    vToolTip.Text = text;
+    Image MyImage = (Image)global::CursoWindowsForms.Properties.Resources.ResourceManager.GetObject(nomeImagem);
+    vToolTip.Image = MyImage;
+    return vToolTip;
+}
+
+private void Tbc_Aplicacoes_MouseDown(object sender, MouseEventArgs e)
+{
+    if (e.Button == System.Windows.Forms.MouseButtons.Right)
+    {
+
+        var ContextMenu = new ContextMenuStrip();
+        var vToolTip001 = DesenhaItemMenu("Fechar a aba", "DeleteTab");
+        var vToolTip002 = DesenhaItemMenu("Fechar todas abas à esquerda", "DeleteLeft");
+        var vToolTip003 = DesenhaItemMenu("Fechar todas abas à direita", "DeleteRight");
+        var vToolTip004 = DesenhaItemMenu("Fechar todas abas, menos esta", "DeleteAll");
+        ContextMenu.Items.Add(vToolTip001);
+        ContextMenu.Items.Add(vToolTip002);
+        ContextMenu.Items.Add(vToolTip003);
+        ContextMenu.Items.Add(vToolTip004);
+        ContextMenu.Show(this, new Point(e.X, e.Y));
+        vToolTip001.Click += new System.EventHandler(vToolTip001_Click);
+        vToolTip002.Click += new System.EventHandler(vToolTip002_Click);
+        vToolTip003.Click += new System.EventHandler(vToolTip003_Click);
+        vToolTip004.Click += new System.EventHandler(vToolTip004_Click);
+    }
+}
